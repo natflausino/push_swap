@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/09 23:13:59 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/08/13 18:50:20 by nbarreir         ###   ########.fr       */
+/*   Created: 2021/03/20 01:22:31 by nbarreir          #+#    #+#             */
+/*   Updated: 2021/09/08 23:27:05 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../includes/push_swap.h"
 
-typedef struct s_swap
+t_list	*ft_lstlast(t_list *lst)
 {
-	int	data;
-	struct s_swap *next_point;
-	struct s_swap *prev_point;
-}	t_swap;
-
-
-
-#endif
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
+}

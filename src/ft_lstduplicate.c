@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstduplicate.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/09 23:13:22 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/08/13 18:50:48 by nbarreir         ###   ########.fr       */
+/*   Created: 2021/09/18 22:44:15 by nbarreir          #+#    #+#             */
+/*   Updated: 2021/09/18 22:44:18 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+t_list	*ft_lstduplicate(t_list *lst)
 {
-	
+	t_list	*duplicate;
+	t_list	*new;
 
-	if (argc == 1)
-		exit(1);
-	argv = &argv[1];
-	argc--;
-	return (0);
+	duplicate = NULL;
+	while (lst)
+	{
+		new = ft_lstnew(lst->number);
+		if (!new)
+		{
+			ft_lst_free(&duplicate);
+			return (NULL);
+		}
+		ft_lstadd_back(&duplicate, new);
+		lst = lst->next;
+	}
+	return (duplicate);
 }
